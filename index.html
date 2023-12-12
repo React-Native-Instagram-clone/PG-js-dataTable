@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTables</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/responsive.dataTables.css">
+  
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.responsive.js"></script>
+</head>
+<body>
+
+  <h2>Task 1 - Sorting and Searching Datatable with js </h2>
+  
+  <input type="text" id="searchInput" placeholder="Search...">
+  
+  <table id="example" class="display responsive nowrap">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Aditya Deshmukh</td>
+        <td>25</td>
+        <td>Mumbai</td>
+      </tr>
+      <tr>
+        <td>Aishwarya Pawar</td>
+        <td>30</td>
+        <td>Pune</td>
+      </tr>
+      <tr>
+        <td>Akshay Joshi</td>
+        <td>22</td>
+        <td>Nashik</td>
+      </tr>
+      <tr>
+        <td>Anjali Gaikwad</td>
+        <td>35</td>
+        <td>Solapur</td>
+      </tr>
+      <tr>
+        <td>Vikrant Sawant</td>
+        <td>28</td>
+        <td>Thane</td>
+      </tr>
+      <tr>
+        <td>Neha Kulkarni</td>
+        <td>31</td>
+        <td>Aurangabad</td>
+      </tr>
+      <tr>
+        <td>Sachin Mane</td>
+        <td>29</td>
+        <td>Kolhapur</td>
+      </tr>
+      <tr>
+        <td>Deepali More</td>
+        <td>27</td>
+        <td>Nagpur</td>
+      </tr>
+      <tr>
+        <td>Ashish Gavande</td>
+        <td>33</td>
+        <td>Ahmednagar</td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+
+  <script>
+    $(document).ready(function() {
+      // Initialize DataTable with pagination and responsive extension
+      var table = $('#example').DataTable({
+        "paging": true,
+        "pageLength": 5, // Set the default number of rows per page
+        "lengthMenu": [5, 10, 25, 50, 100], // Customize the page length options
+        "responsive": true // Enable responsive extension
+      });
+
+      // Add search functionality
+      $('#searchInput').on('keyup', function() {
+        table.search(this.value).draw();
+      });
+    });
+  </script>
+
+</body>
+</html>
